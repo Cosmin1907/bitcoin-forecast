@@ -1,67 +1,64 @@
-# ![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
-
-## Template Instructions
-
-Welcome,
-
-This is the Code Institute student template for the bring your own data project option in Predictive Analytics. We have preinstalled all of the tools you need to get started. It's perfectly okay to use this template as the basis for your project submissions. Click the `Use this template` button above to get started.
-
-You can safely delete the Template Instructions section of this README.md file and modify the remaining paragraphs for your own project. Please do read the Template Instructions at least once, though! It contains some important information about the IDE and the extensions we use.
-
-## How to use this repo
-
-1. Use this template to create your GitHub project repo
-
-1. Log into your cloud IDE with your GitHub account.
-
-1. On your Dashboard, click on the New Workspace button
-
-1. Paste in the URL you copied from GitHub earlier
-
-1. Click Create
-
-1. Wait for the workspace to open. This can take a few minutes.
-
-1. Open a new terminal and `pip3 install -r requirements.txt`
-
-1. Open the jupyter_notebooks directory, and click on the notebook you want to open.
-
-1. Click the kernel button and choose Python Environments.
-
-Note that the kernel says Python 3.8.18 as it inherits from the workspace, so it will be Python-3.8.18 as installed by our template. To confirm this, you can use `! python --version` in a notebook code cell.
-
-## Cloud IDE Reminders
-
-To log into the Heroku toolbelt CLI:
-
-1. Log in to your Heroku account and go to _Account Settings_ in the menu under your avatar.
-2. Scroll down to the _API Key_ and click _Reveal_
-3. Copy the key
-4. In the terminal, run `heroku_config`
-5. Paste in your API key when asked
-
-
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
-
-
 ## Dataset Content
 * Describe your dataset. Choose a dataset of reasonable size to avoid exceeding the repository's maximum size and to have a shorter model training time. If you are doing an image recognition project, we suggest you consider using an image shape that is 100px × 100px or 50px × 50px, to ensure the model meets the performance requirement but is smaller than 100Mb for a smoother push to GitHub. A reasonably sized image set is ~5000 images, but you can choose ~10000 lines for numeric or textual data. 
 
 
+# Machine Learning Project for Trading Company
+
 ## Business Requirements
-* Describe your business requirements
+The client is a trading company looking to gain a competitive advantage by predicting asset prices and trends.
 
+1. **Objective**: Predict the next closing price and asset trends (upward/downward movement).
+2. **Conventional Data Analysis**: Analyze historical price data to identify patterns.
+3. **Deliverable**: 
+   - A dashboard that visualizes predicted trends and closing prices.
+4. **Success Criteria**:
+   - A fully functioning dashboard with accurate predictions.
+   - Detailed study on trend predictions.
+   - Accurate next closing price predictions.
+5. **Project Breakdown**:
+   - **Epics**: Data collection, feature engineering, model training, and dashboard development.
+   - **User Stories**: Real-time predictions, trend visualization, and user-friendly interface.
+6. **Ethical Considerations**: Data has a Creative Commons license (CC); no privacy concerns.
+7. **Data-Driven Insight**: Use regression to predict closing price and classification for buy/sell signals.
 
-## Hypothesis and how to validate?
-* List here your project hypothesis(es) and how you envision validating it (them) 
+## Hypothesis and How to Validate
+1. **Hypothesis 1**: Historical price movements and volume can predict future closing prices.
+   - **Validation**: Correlation study between historical price/volume and future prices.
+   
+2. **Hypothesis 2**: External factors such as news or market sentiment influence asset trends.
+   - **Validation**: Time series analysis and correlation studies between external market indicators and trend movements.
 
+## The Rationale to Map the Business Requirements to the Data Visualizations and ML Tasks
+1. **Predict Next Closing Price**:
+   - **Data Visualization**: Plot historical vs predicted closing prices using time series graphs.
+   - **ML Task**: Regression model to predict the next closing price.
+   
+2. **Predict Asset Trend**:
+   - **Data Visualization**: Historical trends with buy/sell signals.
+   - **ML Task**: Classification model to predict if the trend will move up or down.
 
-## The rationale to map the business requirements to the Data Visualizations and ML tasks
-* List your business requirements and a rationale to map them to the Data Visualizations and ML tasks
+## ML Business Case for Each Model
 
+### Predict Next Closing Price
+- **Model Type**: Regression
+- **Goal**: Predict the next closing price based on historical data.
+- **Success Metrics**: 
+  - R² score of at least 0.8.
+- **Failure Conditions**: 
+  - More than 30% of predictions being off by 20% after 6 months.
 
-## ML Business Case
-* In the previous bullet, you potentially visualized an ML task to answer a business requirement. You should frame the business case using the method we covered in the course 
+### Predict Buy/Sell Signals
+- **Model Type**: Classification
+- **Goal**: Predict whether the market trend is favorable for a "buy" or "sell" decision.
+- **Success Metrics**: 
+  - 80% recall for buy/sell signals.
+- **Failure Conditions**: 
+  - More than 30% incorrect buy/sell predictions after 3 months.
+
+## Client Benefits
+- Data-driven insights for better trading decisions.
+- Real-time predictions for increased market responsiveness.
+- Enhanced profitability by accurate forecasting of prices and trends.
 
 
 ## Dashboard Design
