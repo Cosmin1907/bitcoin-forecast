@@ -5,37 +5,33 @@
 # Machine Learning Project for Trading Company
 
 ## Business Requirements
-The client is a trading company looking to gain a competitive advantage by predicting asset prices and trends.
 
-1. **Objective**: Predict the next closing price and asset trends (upward/downward movement).
-2. **Conventional Data Analysis**: Analyze historical price data to identify patterns.
-3. **Deliverable**: 
-   - A dashboard that visualizes predicted trends and closing prices.
-4. **Success Criteria**:
-   - A fully functioning dashboard with accurate predictions.
-   - Detailed study on trend predictions.
-   - Accurate next closing price predictions.
-5. **Project Breakdown**:
-   - **Epics**: Data collection, feature engineering, model training, and dashboard development.
-   - **User Stories**: Real-time predictions, trend visualization, and user-friendly interface.
-6. **Ethical Considerations**: Data has a Creative Commons license (CC); no privacy concerns.
-7. **Data-Driven Insight**: Use regression to predict closing price and classification for buy/sell signals.
+The client is a trading company aiming to gain a competitive edge by identifying patterns in Bitcoin price movements to make informed trading decisions.
+
+**Objective:**
+
+1. Identify key variables that correlate with significant Bitcoin price changes.
+2. Predict if Bitcoin's price will rise or fall in the near term and determine the likely trend strength. 
 
 ## Hypothesis and How to Validate
-1. **Hypothesis 1**: Historical price movements and volume can predict future closing prices.
-   - **Validation**: Correlation study between historical price/volume and future prices.
+
+1. Hypothesis: Bitcoin price changes correlate with trading volume (in BTC and USD).
+
+- Validation: A Correlation study can help in this investigation
    
-2. **Hypothesis 2**: External factors such as news or market sentiment influence asset trends.
-   - **Validation**: Time series analysis and correlation studies between external market indicators and trend movements.
+2. Hypothesis: Daily closing prices are influenced by the daily high and low prices.
+
+- Validation: A Correlation study can help in this investigation
 
 ## The Rationale to Map the Business Requirements to the Data Visualizations and ML Tasks
-1. **Predict Next Closing Price**:
-   - **Data Visualization**: Plot historical vs predicted closing prices using time series graphs.
-   - **ML Task**: Regression model to predict the next closing price.
+1. **Business Requirement 1:** Data Visualization and Correlation study:
+   - Will inspect the data related to the closing price.
+   - Will conduct a correlation study (Pearson and Spearman) to understand better how the variables are correlated to the closing price.
+   - Will plot the main variables against the closing price to visualize insights.
    
-2. **Predict Asset Trend**:
-   - **Data Visualization**: Historical trends with buy/sell signals.
-   - **ML Task**: Classification model to predict if the trend will move up or down.
+2. **Business Requirement 2:** Classification, Regression:
+   - We want to predict the closing price of the new day. Will build a regression model.
+   - We want to predict if it is a good momnet o buy or to sell. We want to build a classification model for buy and sell signals.
 
 ## ML Business Case for Each Model
 
