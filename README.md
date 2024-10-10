@@ -102,7 +102,9 @@ The client is a trading company aiming to gain a competitive edge by identifying
 - The images used for the gallery page were taken from this other open-source site
 
 
-
-## Acknowledgements (optional)
-* Thank the people that provided support through this project.
+## Sources: 
+https://www.analyticsvidhya.com/blog/2021/12/12-data-plot-types-for-visualization/
+https://pandas.pydata.org/docs/reference/api/pandas.date_range.html
+https://www.datacamp.com/tutorial/line-plots-in-matplotlib-with-python
+Code institute walktrugh project 2
 
