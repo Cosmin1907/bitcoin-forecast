@@ -4,14 +4,16 @@ import streamlit as st
 import matplotlib.pyplot as plt
 import seaborn as sns
 import pandas as pd
-from src.data_management import load_btc_data
 
 sns.set_style("whitegrid")
 
 def page_price_study_body():
+    
     # Load Bitcoin data
-    df = load_btc_data()
-
+    df = pd.read_csv('outputs/datasets/collection/BTCDaily.csv')
+    df['date'] = pd.to_datetime(df['date'], format='%Y-%m-%d')
+    df.set_index('date', inplace=True)
+    
     # Display header
     st.write("### Bitcoin Price Movement Correlation Study")
     st.info(

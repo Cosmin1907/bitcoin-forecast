@@ -17,6 +17,6 @@ app.add_page("Price Study", page_price_study_body)
 app.add_page("Bitcoin Forecast", page_forecast_body)
 app.add_page("Project Hypothesis and Validation", page_project_hypothesis_body)
 app.add_page("ML: Predict Trend", page_predict_trend_body)
-app.add_page("ML: Prospect Price", page_predict_price_body)
+app.add_page("ML: Predict Price", page_predict_price_body)
 
 app.run()  # Run the  app

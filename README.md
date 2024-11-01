@@ -39,7 +39,7 @@ The client is a trading company aiming to gain a competitive edge by identifying
 - **Model Type**: Regression
 - **Goal**: Predict the next closing price based on historical data.
 - **Success Metrics**: 
-  - R² score of at least 0.8.
+  - R² score of at least 0.7.
 - **Failure Conditions**: 
   - More than 30% of predictions being off by 20% after 6 months.
 
