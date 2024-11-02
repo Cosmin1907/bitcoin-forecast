@@ -78,7 +78,12 @@ def predict_signal(model, input_data):
     return model.predict(input_data)
 
 def page_forecast_body():
+    
     st.header("Bitcoin Price Prediction and Buy/Sell Signal")
+    
+    st.info(
+    f"* The forecast is made using two algorithms: one predicts the next daily closing price of Bitcoin, while the other generates buy/sell signals to indicate trend continuation or initiation."
+)
     
     # Load Bitcoin data
     bitcoin_data = load_bitcoin_data()
@@ -118,8 +123,8 @@ def page_forecast_body():
         signal_prediction = predict_signal(classification_model, X_live_classification)
 
         # Display results
-        st.write(f"Predicted Bitcoin Price: ${price_prediction[0]:,.2f}")
-        st.write(f"Predicted Signal: {'Buy' if signal_prediction[0] == 1 else 'Sell'}")
+        st.write(f"Predicted Daily Closing Price of Bitcoin: ${price_prediction[0]:,.2f}")
+        st.write(f"Predicted Signal: {'Buy' if signal_prediction[0] == 1 else 'Sell'} - indicating a short-term opportunity or trend direction.")
 
 if __name__ == "__main__":
     page_forecast_body()
