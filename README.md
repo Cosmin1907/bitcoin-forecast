@@ -103,6 +103,14 @@ The client is a trading company aiming to gain a competitive edge by identifying
 
 
 ## Sources: 
+
+author = {Prasoon Kottarathil},
+title = {Bitcoin Historical Dataset},
+year = {2020},
+publisher = {kaggle},
+journal = {Kaggle Dataset},
+how published = {\url{https://www.kaggle.com/prasoonkottarathil/btcinusd}}
+
 https://www.analyticsvidhya.com/blog/2021/12/12-data-plot-types-for-visualization/
 https://pandas.pydata.org/docs/reference/api/pandas.date_range.html
 https://www.datacamp.com/tutorial/line-plots-in-matplotlib-with-python
