@@ -98,14 +98,45 @@ The client is a trading company aiming to gain a competitive edge by identifying
 - Enhanced profitability by accurate forecasting of prices and trends.
 
 
-## Dashboard Design
-* List all dashboard pages and their content, either blocks of information or widgets, like buttons, checkboxes, images, or any other item that your dashboard library supports.
-* Later, during the project development, you may revisit your dashboard plan to update a given feature (for example, at the beginning of the project you were confident you would use a given plot to display an insight but subsequently you used another plot type).
+## Dashboard Design (Streamlit App User Interface)
 
+### Page 1: Quick Project Summary
+- Quick project summary
+    - Project Terms & Jargon
+    - Describe Project Dataset
+    - State Business Requirements
+
+### Page 2: Bitcoin Price Movement Correlation Study
+- This page adresses Business Requirement No. 1: Data Visualization and Correlation Study.
+- Checkbox: Data inspection on Bitcoin metrics (display the number of rows and columns in the data, and display the first ten rows of the data).
+- Checkbox: Individual plots for closing prices against high/low prices.
+- Checkbox: Visualize the overlay plot for trading volume and price changes.
+
+### Page 3: Bitcoin Price Prediction and Buy/Sell Signal
+- This page addresses Business Requirement No. 2: Price Forecasting, providing a brief overview of the prediction methods used while running predictions on live data.
+
+### Page 4: Project Hypothesis and Validation
+- Before the analysis, we aimed to outline each project hypothesis, the conclusions drawn, and the validation methods employed. After data analysis, we can report the following:
+    - **Hypothesis 1:** Daily closing prices are influenced by the daily high and low prices.
+        - This is supported by correlation analysis showing significant relationships between closing prices and daily high/low prices.
+    - **Hypothesis 2:** The calculated trade value and MACD will enhance the accuracy of predicting potential price rises or falls in the near term.
+        - This hypothesis is validated by the findings from our correlation study and predictive models.
+
+### Page 5: Predict Buy/Sell Signals (Trend)
+- Considerations and conclusions after the pipeline is trained
+- Present ML pipeline steps
+- Feature importance
+- Pipeline performance
+  
+### Page 6: Predict Bitcoin Closing Price
+- Considerations and conclusions after the pipeline is trained
+- Present ML pipeline steps
+- Feature importance
+- Pipeline performance
 
 
 ## Unfixed Bugs
-* You will need to mention unfixed bugs and why they were not fixed. This section should include shortcomings of the frameworks or technologies used. Although time can be a significant variable to consider, paucity of time and difficulty understanding implementation is not a valid reason to leave bugs unfixed.
+* 
 
 ## Deployment
 ### Heroku
