@@ -3,7 +3,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import joblib
 from src.data_management import load_pkl_file
-from src.machine_learning.evaluate_model import evaluate_model  # Changed to the new function
+from src.machine_learning.evaluate_model import evaluate_model  
 
 def page_predict_trend_body():
     version = 'v1'
