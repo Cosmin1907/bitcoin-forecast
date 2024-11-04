@@ -6,6 +6,7 @@ from src.data_management import load_pkl_file
 
 # Function to fetch Bitcoin historical data from Binance
 def load_bitcoin_data():
+    
     url = "https://api.binance.com/api/v3/klines"
     params = {
         "symbol": "BTCUSDT",
@@ -48,6 +49,7 @@ def load_bitcoin_data():
 
 
 def new_features(df):
+    
     df['price mean'] = df[['open', 'high', 'low', 'close']].mean(axis=1)
     df['upper shadow'] = df['high'] - np.maximum(df['open'], df['close'])
     df['lower shadow'] = np.minimum(df['open'], df['close']) - df['low']

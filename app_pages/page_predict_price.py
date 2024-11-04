@@ -6,7 +6,7 @@ from src.machine_learning.evaluate_model import regressor_performance
 
 
 def page_predict_price_body():
-    # Load closing price regression pipeline files
+    
     version = 'v1'
     reg_pipeline = load_pkl_file(
         f"outputs/ml_pipeline/predict_close/{version}/best_regressor_pipeline.pkl")
@@ -40,9 +40,10 @@ def page_predict_price_body():
     # Show best features
     st.write("* The features the model was trained on and their importance:")
     st.image(reg_feat_importance)
+    
     st.write("---")
 
-    # Evaluate performance on both sets
+    # Evaluate performance
     st.write("### Pipeline Performance")
     regressor_performance(X_train=X_train, y_train=y_train,
                           X_test=X_test, y_test=y_test,

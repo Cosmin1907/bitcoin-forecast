@@ -37,7 +37,7 @@ def page_predict_trend_body():
     st.write("---")
     st.write("#### There are 2 ML Pipelines arranged in series.")
     
-    st.write(" * The first is responsible for data cleaning and feature engineering.")
+    st.write(" * The first pipeline handles data cleaning and feature engineering, passing trade data through without modification since it requires no additional transformations.")
     st.write(str(pipeline_data_cleaning_feat_eng))
     
     st.write("* The second is for feature scaling and modeling.")

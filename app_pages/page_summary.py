@@ -8,7 +8,6 @@ def page_summary_body():
         f"**Project Terms & Jargon**\n"
         f"* **Bitcoin Closing Price**: The final price of Bitcoin at the close of each trading day.\n"
         f"* **Buy/Sell Signal**: A recommendation for trade action based on market trend predictions.\n"
-        f"* **Trend Strength**: The predicted intensity or stability of an upward or downward price movement.\n\n"
         
         f"**Project Dataset**\n"
         f"* The dataset includes daily Bitcoin trading data, including metrics such as opening price, "
