@@ -134,9 +134,15 @@ The client is a trading company aiming to gain a competitive edge by identifying
 - Feature importance
 - Pipeline performance
 
+## Fixed Bugs
+
+* The initial regression model struggled to make accurate predictions on live data. To address this, I developed Version 2 of the regression model, which involved a thorough review of the feature set. During this process, I eliminated the simple moving averages as they appeared redundant. Moreover, the 100-day and 50-day SMAs required a substantial amount of historical data to produce their first data points.
+
+* After retraining Version 2 of the model, I observed improved results, although they were still not optimal. To further enhance performance, I accessed the dataset directly from the Binance API, which I refer to as 'live data.' This dataset includes approximately one year of additional historical data, providing more context. I retrained the model using this API data by fitting it with the transformed features, excluding the 'close' column for predictions. Then, I used the retrained model to predict the closing price for the most recent day, achieving satisfactory results. This approach significantly improved the model's predictive capability.
 
 ## Unfixed Bugs
-* 
+
+* There are no Unfixed Bugs.
 
 ## Deployment
 ### Heroku
@@ -173,32 +179,19 @@ Examples:
 
 ## Credits 
 
-* In this section, you need to reference where you got your content, media and extra help from. It is common practice to use code from other repositories and tutorials, however, it is important to be very specific about these sources to avoid plagiarism. 
-* You can break the credits section up into Content and Media, depending on what you have included in your project. 
+* This project draws inspiration from various sources, including the Code Institute Walkthrough Project 2 for general project structure and guidance. Additionally, the BTC to USD Dataset on Kaggle served as a key source for content inspiration and practical guidance on dataset handling and manipulation techniques.
 
 ### Content 
 
-- The text for the Home page was taken from Wikipedia Article A
-- Instructions on how to implement form validation on the Sign-Up page was taken from [Specific YouTube Tutorial](https://www.youtube.com/)
+-  [BTC to USD Dataset on Kaggle](https://www.kaggle.com/prasoonkottarathil/btcinusd)
 
+## Sources
 
-### Media
+The following resources were used as references and guides for this project:
 
-- The photos used on the home and sign-up page are from This Open-Source site
-- The images used for the gallery page were taken from this other open-source site
-
-
-## Sources: 
-
-author = {Prasoon Kottarathil},
-title = {Bitcoin Historical Dataset},
-year = {2020},
-publisher = {kaggle},
-journal = {Kaggle Dataset},
-how published = {\url{https://www.kaggle.com/prasoonkottarathil/btcinusd}}
-
-https://www.analyticsvidhya.com/blog/2021/12/12-data-plot-types-for-visualization/
-https://pandas.pydata.org/docs/reference/api/pandas.date_range.html
-https://www.datacamp.com/tutorial/line-plots-in-matplotlib-with-python
-Code institute walktrugh project 2
+1. **Code Institute Walkthrough Project 2** - General guide for project structure.
+2. [Data Plot Types for Visualization](https://www.analyticsvidhya.com/blog/2021/12/12-data-plot-types-for-visualization/) 
+3. [Pandas Documentation: `date_range`](https://pandas.pydata.org/docs/reference/api/pandas.date_range.html) - Reference for generating date ranges in Pandas.
+4. [Line Plots in Matplotlib](https://www.datacamp.com/tutorial/line-plots-in-matplotlib-with-python) - Tutorial on creating line plots using Matplotlib.
+5. [BTC to USD Dataset on Kaggle](https://www.kaggle.com/prasoonkottarathil/btcinusd)
 
