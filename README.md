@@ -137,11 +137,15 @@ The client is a trading company aiming to gain a competitive edge by identifying
 - Addresses Business Requirement No. 2: Price Forecasting, providing a brief overview of the prediction methods used while running predictions on live data.
 
 ### Page 4: Project Hypothesis and Validation
-- Before the analysis, we aimed to outline each project hypothesis, the conclusions drawn, and the validation methods employed. After data analysis, we can report the following:
-    - **Hypothesis 1:** Daily closing prices are influenced by the daily high and low prices.
-        - This is supported by correlation analysis showing significant relationships between closing prices and daily high/low prices.
-    - **Hypothesis 2:** The calculated trade value and MACD will enhance the accuracy of predicting potential price rises or falls in the near term.
-        - This hypothesis is validated by the findings from our correlation study and predictive models.
+Before the analysis, we aimed to outline each project hypothesis, the conclusions drawn, and the validation methods employed. After conducting the data analysis, we can report the following:
+
+- Hypothesis 1: Bitcoin price changes correlate with trading volume in USD.
+
+This relationship is supported by our correlation study, indicating a significant link between price movements and trading volume in USD.
+
+- Hypothesis 2: Daily closing prices of Bitcoin are influenced by the daily high and low prices, impacting the trend direction and strength.
+
+This hypothesis is validated by correlation analysis, suggesting that further exploration of these variables is warranted.
 
 ### Page 5: Predict Buy/Sell Signals (Trend)
 - Considerations and conclusions after the pipeline is trained
