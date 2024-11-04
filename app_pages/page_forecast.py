@@ -84,6 +84,7 @@ def page_forecast_body():
     st.header("Bitcoin Price Prediction and Buy/Sell Signal")
     
     st.info(
+    f"The client aims to predict Bitcoin's next day's closing price and determine buy/sell signals based on market trends.\n"
     f"* The forecast is made using two algorithms: one predicts the next daily closing price of Bitcoin, while the other generates buy/sell signals to indicate trend continuation or initiation."
 )
     
