@@ -107,13 +107,13 @@ The client is a trading company aiming to gain a competitive edge by identifying
     - State Business Requirements
 
 ### Page 2: Bitcoin Price Movement Correlation Study
-- This page adresses Business Requirement No. 1: Data Visualization and Correlation Study.
+- Adresses Business Requirement No. 1: Data Visualization and Correlation Study.
 - Checkbox: Data inspection on Bitcoin metrics (display the number of rows and columns in the data, and display the first ten rows of the data).
 - Checkbox: Individual plots for closing prices against high/low prices.
 - Checkbox: Visualize the overlay plot for trading volume and price changes.
 
 ### Page 3: Bitcoin Price Prediction and Buy/Sell Signal
-- This page addresses Business Requirement No. 2: Price Forecasting, providing a brief overview of the prediction methods used while running predictions on live data.
+- Addresses Business Requirement No. 2: Price Forecasting, providing a brief overview of the prediction methods used while running predictions on live data.
 
 ### Page 4: Project Hypothesis and Validation
 - Before the analysis, we aimed to outline each project hypothesis, the conclusions drawn, and the validation methods employed. After data analysis, we can report the following:
@@ -154,7 +154,21 @@ The client is a trading company aiming to gain a competitive edge by identifying
 
 
 ## Main Data Analysis and Machine Learning Libraries
-* Here you should list the libraries you used in the project and provide an example(s) of how you used these libraries.
+
+* Libraries used in this project:
+- numpy==1.24.4
+- pandas
+- matplotlib==3.3.1
+- seaborn
+- streamlit
+- joblib==1.4.2
+- feature-engine==1.6.2
+- scikit-learn==1.3.2
+
+Examples: 
+- Matplotlib is used extensively for creating and displaying various plots related to Bitcoin price movements.
+- Pandas is used extensively for data manipulation and analysis.
+- NumPy is used for a few key operations, primarily to perform mathematical calculations on the DataFrame.
 
 
 ## Credits 

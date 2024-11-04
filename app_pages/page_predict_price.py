@@ -26,8 +26,7 @@ def page_predict_price_body():
     # Display pipeline training summary conclusions
     st.info(
         f"* The regression model aims to predict the next closing price based on historical data.\n"
-        f"* Target R² score was set at 0.70. Current performance shows an R² score of 0.87 on the train set and 0.79 on the test set.\n"
-        f"* Certain features significantly impact performance, although limitations remain in capturing some market conditions."
+        f"* Target R² score was set at 0.70. Current performance shows an R² score of 0.87 on the train set and 0.79 on the test set."
     )
 
     st.write("---")
