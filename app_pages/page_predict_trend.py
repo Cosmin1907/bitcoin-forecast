@@ -6,6 +6,12 @@ from src.data_management import load_pkl_file
 from src.machine_learning.evaluate_model import evaluate_model  
 
 def page_predict_trend_body():
+    """
+    Display and evaluate the ML pipeline for predicting 'buy'/'sell' signals.
+
+    Loads preprocessed data, pipelines, and feature importance. Shows pipeline details and evaluates model performance.
+    """
+    
     version = 'v1'
     
     # Load needed files
@@ -25,15 +31,12 @@ def page_predict_trend_body():
 
     st.write("### ML Pipeline: Predict Buy/Sell Signals")
     
-    # Display pipeline training summary conclusions
     st.info(
         f"* The classification model aims to predict potential 'buy' or 'sell' signals.\n"
         f"* Target recall was set at 80% for both 'Buy' and 'Sell' signals.\n"
         
     )
-
-
-    # Show pipelines
+    
     st.write("---")
     st.write("#### There are 2 ML Pipelines arranged in series.")
     
@@ -43,13 +46,9 @@ def page_predict_trend_body():
     st.write("* The second is for feature scaling and modeling.")
     st.write(str(pipeline_clf))
 
-    # Show feature importance plot
     st.write("---")
     st.write("* The features the model was trained on and their importance:")
     st.image(buy_sell_feat_importance)
-
-    # We don't need to apply the data cleaning and feature engineering pipeline, 
-    # since X_train and X_test were already transformed in the data preparation process.
 
     # Evaluate performance on train and test set
     st.write("---")

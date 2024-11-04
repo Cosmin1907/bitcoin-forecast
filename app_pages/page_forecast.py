@@ -4,9 +4,8 @@ import numpy as np
 import requests
 from src.data_management import load_pkl_file
 
-# Function to fetch Bitcoin historical data from Binance
 def load_bitcoin_data():
-    
+    """Fetch and preprocess daily Bitcoin data from Binance API."""
     url = "https://api.binance.com/api/v3/klines"
     params = {
         "symbol": "BTCUSDT",
@@ -49,7 +48,7 @@ def load_bitcoin_data():
 
 
 def new_features(df):
-    
+    """Add custom financial features to the Bitcoin DataFrame."""
     df['price mean'] = df[['open', 'high', 'low', 'close']].mean(axis=1)
     df['upper shadow'] = df['high'] - np.maximum(df['open'], df['close'])
     df['lower shadow'] = np.minimum(df['open'], df['close']) - df['low']
@@ -69,18 +68,21 @@ def new_features(df):
     return df
 
 def load_models():
+    """Load pre-trained regression and classification models."""
     regression_model = load_pkl_file("outputs/ml_pipeline/predict_close/v2/best_regressor_pipeline.pkl")
     classification_model = load_pkl_file("outputs/ml_pipeline/predict_buy_sell/v1/clf_pipeline_model.pkl")
     return regression_model, classification_model
 
 def predict_price(model, input_data):
+    """Predict Bitcoin's closing price using the regression model."""
     return model.predict(input_data)
 
 def predict_signal(model, input_data):
+    """Predict buy/sell signal using the classification model."""
     return model.predict(input_data)
 
 def page_forecast_body():
-    
+    """Render the Streamlit UI for Bitcoin price prediction and signal generation."""
     st.header("Bitcoin Price Prediction and Buy/Sell Signal")
     
     st.info(
@@ -96,7 +98,7 @@ def page_forecast_body():
     # Transform data to add new features
     bitcoin_data_transformed = new_features(bitcoin_data)
     
-    # Get the most recent closing price 
+    # Get the most recent price 
     current_price = bitcoin_data['close'].iloc[-1]
     st.write(f"Current Bitcoin Price: ${current_price:,.2f}")
     
@@ -110,13 +112,9 @@ def page_forecast_body():
     regression_model.fit(X_live_reg, y_live_reg)
 
     # Prepare DataFrames for live prediction
-    
     X_live_regression = bitcoin_data_transformed.drop(columns=['close']).iloc[[-2]]
-
-    # Drop 'close' for classification, as it is the target for regression
     X_live_classification = bitcoin_data_transformed[['trade']]
 
-    
     # Predict on live data
     if st.button("Run Predictions"):
         # Prediction with regression model

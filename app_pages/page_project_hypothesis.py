@@ -1,6 +1,9 @@
 import streamlit as st
 
 def page_project_hypothesis_body():
+    """
+    Display project hypotheses and validation results in Streamlit.
+    """
     st.write("### Project Hypothesis and Validation")
 
     st.success(

@@ -222,7 +222,7 @@ Examples:
 
 The following resources were used as references and guides for this project:
 
-1. **Code Institute Walkthrough Project 2** - General guide for project structure.
+1. [Churnometer repo by Code Institute](https://github.com/Code-Institute-Solutions/churnometer) - General guide for project structure.
 2. [Data Plot Types for Visualization](https://www.analyticsvidhya.com/blog/2021/12/12-data-plot-types-for-visualization/) 
 3. [Pandas Documentation: `date_range`](https://pandas.pydata.org/docs/reference/api/pandas.date_range.html) - Reference for generating date ranges in Pandas.
 4. [Line Plots in Matplotlib](https://www.datacamp.com/tutorial/line-plots-in-matplotlib-with-python) - Tutorial on creating line plots using Matplotlib.

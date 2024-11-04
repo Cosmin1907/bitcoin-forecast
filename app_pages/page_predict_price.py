@@ -6,7 +6,12 @@ from src.machine_learning.evaluate_model import regressor_performance
 
 
 def page_predict_price_body():
-    
+    """
+    Display and evaluate the ML pipeline for predicting Bitcoin's closing price.
+
+    Loads data, regression pipeline, and feature importance plot. 
+    Shows pipeline details and evaluates model performance with training and testing data.
+    """
     version = 'v1'
     reg_pipeline = load_pkl_file(
         f"outputs/ml_pipeline/predict_close/{version}/best_regressor_pipeline.pkl")
@@ -23,20 +28,18 @@ def page_predict_price_body():
 
     st.write("### ML Pipeline: Predict Bitcoin Closing Price")
     
-    # Display pipeline training summary conclusions
     st.info(
         f"* The regression model aims to predict the next closing price based on historical data.\n"
         f"* Target R² score was set at 0.70. Current performance shows an R² score of 0.87 on the train set and 0.79 on the test set."
     )
 
     st.write("---")
-
-    # Show pipeline steps
+    
     st.write("* ML pipeline to predict the next Bitcoin closing price.")
     st.write(str(reg_pipeline))
+    
     st.write("---")
 
-    # Show best features
     st.write("* The features the model was trained on and their importance:")
     st.image(reg_feat_importance)
     
