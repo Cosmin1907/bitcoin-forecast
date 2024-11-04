@@ -1,3 +1,17 @@
+## Table of contents
+
+- [Dataset Content](#dataset-content)
+- [Business Requirements](#business-requirements)
+- [Project hypothesis and validation](#hypothesis-and-how-to-validate)
+- [Rationale to map the business requirements to the Data Visualizations and ML tasks](#the-rationale-to-map-the-business-requirements-to-the-data-visualizations-and-ml-tasks)
+- [ML Business Case](#ml-business-case-for-each-model)
+- [Dashboard Design](#dashboard-design)
+- [Fixed Bugs](#fixed-bugs)
+- [Unfixed Bugs](#unfixed-bugs)
+- [Deployment to Heroku](#deployment-to-heroku)
+- [Main Data Analysis and Machine Learning Libraries](#main-data-analysis-and-machine-learning-libraries)
+- [Credits](#credits)
+
 ## Dataset Content
 * The dataset is sourced from [Kaggle](https://www.kaggle.com/prasoonkottarathil/btcinusd). This dataset provides historical Bitcoin data to facilitate predictive analytics and research in cryptocurrency trends.
 * The dataset contains daily historical data, represented by various metrics for Bitcoin (BTC) trading. It includes information such as opening, closing, high, and low prices, along with trading volumes for the currency. Additionally, it has been augmented with new features to enhance analysis.
@@ -41,7 +55,7 @@
   howpublished = {\url{https://www.kaggle.com/prasoonkottarathil/btcinusd}}
 }
 ```
-
+[Back to Table of contents](#table-of-contents)
 
 # Machine Learning Project for Trading Company
 
@@ -54,6 +68,8 @@ The client is a trading company aiming to gain a competitive edge by identifying
 1. Identify key variables that correlate with significant Bitcoin price changes.
 2. Predict if Bitcoin's price will rise or fall in the near term and determine the likely trend strength. 
 
+[Back to Table of contents](#table-of-contents)
+
 ## Hypothesis and How to Validate
 
 1. Hypothesis: Bitcoin price changes correlate with trading volume (in BTC and USD).
@@ -64,6 +80,8 @@ The client is a trading company aiming to gain a competitive edge by identifying
 
 - Validation: A Correlation study can help in this investigation
 
+[Back to Table of contents](#table-of-contents)
+
 ## The Rationale to Map the Business Requirements to the Data Visualizations and ML Tasks
 1. **Business Requirement 1:** Data Visualization and Correlation study:
    - Will inspect the data related to the closing price.
@@ -73,6 +91,8 @@ The client is a trading company aiming to gain a competitive edge by identifying
 2. **Business Requirement 2:** Classification, Regression:
    - We want to predict the closing price of the new day. Will build a regression model.
    - We want to predict if it is a good momnet o buy or to sell. We want to build a classification model for buy and sell signals.
+
+   [Back to Table of contents](#table-of-contents)
 
 ## ML Business Case for Each Model
 
@@ -97,8 +117,9 @@ The client is a trading company aiming to gain a competitive edge by identifying
 - Real-time predictions for increased market responsiveness.
 - Enhanced profitability by accurate forecasting of prices and trends.
 
+[Back to Table of contents](#table-of-contents)
 
-## Dashboard Design (Streamlit App User Interface)
+## Dashboard Design
 
 ### Page 1: Quick Project Summary
 - Quick project summary
@@ -134,18 +155,23 @@ The client is a trading company aiming to gain a competitive edge by identifying
 - Feature importance
 - Pipeline performance
 
+[Back to Table of contents](#table-of-contents)
+
 ## Fixed Bugs
 
 * The initial regression model struggled to make accurate predictions on live data. To address this, I developed Version 2 of the regression model, which involved a thorough review of the feature set. During this process, I eliminated the simple moving averages as they appeared redundant. Moreover, the 100-day and 50-day SMAs required a substantial amount of historical data to produce their first data points.
 
 * After retraining Version 2 of the model, I observed improved results, although they were still not optimal. To further enhance performance, I accessed the dataset directly from the Binance API, which I refer to as 'live data.' This dataset includes approximately one year of additional historical data, providing more context. I retrained the model using this API data by fitting it with the transformed features, excluding the 'close' column for predictions. Then, I used the retrained model to predict the closing price for the most recent day, achieving satisfactory results. This approach significantly improved the model's predictive capability.
 
+[Back to Table of contents](#table-of-contents)
+
 ## Unfixed Bugs
 
 * There are no Unfixed Bugs.
 
-## Deployment
-### Heroku
+[Back to Table of contents](#table-of-contents)
+
+## Deployment to Heroku
 
 * The App live link is: https://bitcoin-forecast-21da6c961a62.herokuapp.com/
 * Set the runtime.txt Python version to a [Heroku-20](https://devcenter.heroku.com/articles/python-support#supported-runtimes) stack currently supported version.
@@ -158,6 +184,7 @@ The client is a trading company aiming to gain a competitive edge by identifying
 5. The deployment process should happen smoothly if all deployment files are fully functional. Click now the button Open App on the top of the page to access your App.
 6. If the slug size is too large then add large files not required for the app to the .slugignore file.
 
+[Back to Table of contents](#table-of-contents)
 
 ## Main Data Analysis and Machine Learning Libraries
 
@@ -176,6 +203,7 @@ Examples:
 - Pandas is used extensively for data manipulation and analysis.
 - NumPy is used for a few key operations, primarily to perform mathematical calculations on the DataFrame.
 
+[Back to Table of contents](#table-of-contents)
 
 ## Credits 
 
@@ -195,3 +223,4 @@ The following resources were used as references and guides for this project:
 4. [Line Plots in Matplotlib](https://www.datacamp.com/tutorial/line-plots-in-matplotlib-with-python) - Tutorial on creating line plots using Matplotlib.
 5. [BTC to USD Dataset on Kaggle](https://www.kaggle.com/prasoonkottarathil/btcinusd)
 
+[Back to Table of contents](#table-of-contents)
