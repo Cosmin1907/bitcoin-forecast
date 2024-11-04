@@ -178,7 +178,8 @@ This hypothesis is validated by correlation analysis, suggesting that further ex
 ## Deployment to Heroku
 
 * The App live link is: https://bitcoin-forecast-21da6c961a62.herokuapp.com/
-* Set the runtime.txt Python version to a [Heroku-20](https://devcenter.heroku.com/articles/python-support#supported-runtimes) stack currently supported version.
+*  Deployed on the Heroku-20 stack, this project utilizes a currently supported version of Python as outlined in the [Heroku documentation](https://devcenter.heroku.com/articles/python-support#supported-runtimes) 
+
 * The project was deployed to Heroku using the following steps.
 
 1. Log in to Heroku and create an App
