@@ -1,5 +1,46 @@
 ## Dataset Content
-* Describe your dataset. Choose a dataset of reasonable size to avoid exceeding the repository's maximum size and to have a shorter model training time. If you are doing an image recognition project, we suggest you consider using an image shape that is 100px × 100px or 50px × 50px, to ensure the model meets the performance requirement but is smaller than 100Mb for a smoother push to GitHub. A reasonably sized image set is ~5000 images, but you can choose ~10000 lines for numeric or textual data. 
+* The dataset is sourced from [Kaggle](https://www.kaggle.com/prasoonkottarathil/btcinusd). This dataset provides historical Bitcoin data to facilitate predictive analytics and research in cryptocurrency trends.
+* The dataset contains daily historical data, represented by various metrics for Bitcoin (BTC) trading. It includes information such as opening, closing, high, and low prices, along with trading volumes for the currency. Additionally, it has been augmented with new features to enhance analysis.
+
+### Original Dataset Variables
+
+| Variable           | Meaning                                           | Units                            |
+|:-------------------|:--------------------------------------------------|:---------------------------------|
+| Unix Timestamp     | Unix timestamp or Epoch Time                      | Seconds since 1970-01-01 00:00:00 UTC |
+| Date               | The date corresponding to the timestamp           | UTC Timezone                     |
+| Symbol             | The cryptocurrency symbol associated with the data| BTC                             |
+| Open               | Opening price for the time period                 | USD                              |
+| High               | Highest price for the time period                 | USD                              |
+| Low                | Lowest price for the time period                  | USD                              |
+| Close              | Closing price for the time period                 | USD                              |
+| Volume (Crypto)    | Volume transacted in the cryptocurrency           | BTC                              |
+| Volume Base Ccy    | Volume transacted in the base currency            | USD                              |
+
+### Augmented Features
+
+| Variable           | Meaning                                           | Units                            |
+|:-------------------|:--------------------------------------------------|:---------------------------------|
+| Price Mean         | Average price computed from open, high, low, and close | USD                         |
+| Upper Shadow       | Difference between the high and the maximum of open and close | USD                       |
+| Lower Shadow       | Difference between the minimum of open and close and the low | USD                     |
+| Spread             | Difference between the high and the low            | USD                              |
+| Trade              | Difference between the closing and opening prices  | USD                              |
+| 12EMA              | 12-period Exponential Moving Average of closing price | USD                          |
+| 26EMA              | 26-period Exponential Moving Average of closing price | USD                          |
+| MACD               | Moving Average Convergence Divergence (12EMA - 26EMA) | USD                          |
+| Buy/Sell Signal    | Indicator of price movement (1 for buy, 0 for sell) | Binary (0 or 1)              |
+
+### Citation
+```bibtex
+@misc{Kottarathil2020,
+  author = {Prasoon Kottarathil},
+  title = {Bitcoin Historical Dataset},
+  year = {2020},
+  publisher = {Kaggle},
+  journal = {Kaggle Dataset},
+  howpublished = {\url{https://www.kaggle.com/prasoonkottarathil/btcinusd}}
+}
+```
 
 
 # Machine Learning Project for Trading Company
@@ -69,7 +110,7 @@ The client is a trading company aiming to gain a competitive edge by identifying
 ## Deployment
 ### Heroku
 
-* The App live link is: https://YOUR_APP_NAME.herokuapp.com/ 
+* The App live link is: https://bitcoin-forecast-21da6c961a62.herokuapp.com/
 * Set the runtime.txt Python version to a [Heroku-20](https://devcenter.heroku.com/articles/python-support#supported-runtimes) stack currently supported version.
 * The project was deployed to Heroku using the following steps.
 
@@ -94,7 +135,7 @@ The client is a trading company aiming to gain a competitive edge by identifying
 
 - The text for the Home page was taken from Wikipedia Article A
 - Instructions on how to implement form validation on the Sign-Up page was taken from [Specific YouTube Tutorial](https://www.youtube.com/)
-- The icons in the footer were taken from [Font Awesome](https://fontawesome.com/)
+
 
 ### Media
 
