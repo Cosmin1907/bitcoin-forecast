@@ -67,10 +67,10 @@ def plot_bull_market(df):
 
     # Plot
     fig, ax = plt.subplots(figsize=(12, 6))
-    ax.plot(df_bull_run.index, df_bull_run['high'], label='High', color='green')
-    ax.plot(df_bull_run.index, df_bull_run['low'], label='Low', color='red')
-    ax.plot(df_bull_run.index, df_bull_run['close'], label='Close', color='blue')
-    ax.fill_between(df_bull_run.index, df_bull_run['low'], df_bull_run['high'], color='grey', alpha=0.2)
+    ax.plot(df_bull_run.index.to_numpy(), df_bull_run['high'].to_numpy(), label='High', color='green')
+    ax.plot(df_bull_run.index.to_numpy(), df_bull_run['low'].to_numpy(), label='Low', color='red')
+    ax.plot(df_bull_run.index.to_numpy(), df_bull_run['close'].to_numpy(), label='Close', color='blue')
+    ax.fill_between(df_bull_run.index.to_numpy(), df_bull_run['low'], df_bull_run['high'], color='grey', alpha=0.2)
     ax.set_title('Bitcoin Price During 2017 Bull Run')
     ax.set_xlabel('Date')
     ax.set_ylabel('Price (USD)')
@@ -86,10 +86,10 @@ def plot_bear_market(df):
 
     # Plot
     fig, ax = plt.subplots(figsize=(12, 6))
-    ax.plot(df_crash.index, df_crash['high'], label='High', color='green')
-    ax.plot(df_crash.index, df_crash['low'], label='Low', color='red')
-    ax.plot(df_crash.index, df_crash['close'], label='Close', color='blue')
-    ax.fill_between(df_crash.index, df_crash['low'], df_crash['high'], color='grey', alpha=0.2)
+    ax.plot(df_crash.index.to_numpy(), df_crash['high'].to_numpy(), label='High', color='green')
+    ax.plot(df_crash.index.to_numpy(), df_crash['low'].to_numpy(), label='Low', color='red')
+    ax.plot(df_crash.index.to_numpy(), df_crash['close'].to_numpy(), label='Close', color='blue')
+    ax.fill_between(df_crash.index.to_numpy(), df_crash['low'], df_crash['high'], color='grey', alpha=0.2)
     ax.set_title('March 2020 Crash (COVID-19 Market Crash)')
     ax.set_xlabel('Date')
     ax.set_ylabel('Price (USD)')
@@ -105,7 +105,7 @@ def plot_volume_overlay(df):
 
     # Plot
     fig, ax1 = plt.subplots(figsize=(12, 6))
-    ax1.plot(df_filtered.index, df_filtered['close'], label='Close Price', color='blue')
+    ax1.plot(df_filtered.index.to_numpy(), df_filtered['close'].to_numpy(), label='Close Price', color='blue')
     ax1.set_xlabel('Date')
     ax1.set_ylabel('Price (USD)', color='blue')
     ax1.tick_params(axis='y', labelcolor='blue')
@@ -115,10 +115,10 @@ def plot_volume_overlay(df):
     positive_volume = df_filtered['Volume USD'][df_filtered['close'] > df_filtered['open']]
     negative_volume = df_filtered['Volume USD'][df_filtered['close'] <= df_filtered['open']]
 
-    ax2.bar(df_filtered.index[df_filtered['close'] > df_filtered['open']],
-            positive_volume, alpha=0.6, color='green', label='Positive Volume (USD)')
-    ax2.bar(df_filtered.index[df_filtered['close'] <= df_filtered['open']],
-            negative_volume, alpha=0.6, color='red', label='Negative Volume (USD)')
+    ax2.bar(df_filtered.index[df_filtered['close'] > df_filtered['open']].to_numpy(),
+            positive_volume.to_numpy(), alpha=0.6, color='green', label='Positive Volume (USD)')
+    ax2.bar(df_filtered.index[df_filtered['close'] <= df_filtered['open']].to_numpy(),
+            negative_volume.to_numpy(), alpha=0.6, color='red', label='Negative Volume (USD)')
     ax2.set_ylabel('Volume (USD)', color='gray')
     ax2.tick_params(axis='y', labelcolor='gray')
 
