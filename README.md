@@ -68,6 +68,15 @@ The client is a trading company aiming to gain a competitive edge by identifying
 1. Identify key variables that correlate with significant Bitcoin price changes.
 2. Predict if Bitcoin's price will rise or fall in the near term and determine the likely trend strength. 
 
+1. **Business Requirement 1:** Data Visualization and Correlation study:
+   - Will inspect the data related to the closing price.
+   - Will conduct a correlation study (Pearson and Spearman) to understand better how the variables are correlated to the closing price.
+   - Will plot the main variables against the closing price to visualize insights.
+   
+2. **Business Requirement 2:** Classification, Regression:
+   - We want to predict the closing price of the new day. Will build a regression model.
+   - We want to predict if it is a good momnet o buy or to sell. We want to build a classification model for buy and sell signals.
+
 [Back to Table of contents](#table-of-contents)
 
 ## Hypothesis and How to Validate
@@ -83,14 +92,51 @@ The client is a trading company aiming to gain a competitive edge by identifying
 [Back to Table of contents](#table-of-contents)
 
 ## The Rationale to Map the Business Requirements to the Data Visualizations and ML Tasks
-1. **Business Requirement 1:** Data Visualization and Correlation study:
-   - Will inspect the data related to the closing price.
-   - Will conduct a correlation study (Pearson and Spearman) to understand better how the variables are correlated to the closing price.
-   - Will plot the main variables against the closing price to visualize insights.
-   
-2. **Business Requirement 2:** Classification, Regression:
-   - We want to predict the closing price of the new day. Will build a regression model.
-   - We want to predict if it is a good momnet o buy or to sell. We want to build a classification model for buy and sell signals.
+
+### Epics:
+
+- __Data collection and preparation__
+- __Data visualization__
+- __Model training, optimization, and evaluation__
+- __Dashboard development and deployment__
+
+### User stories:
+
+#### Data Collection and Preparation
+
+1. **User Story:** As a developer, I can gather and prepare a high-quality dataset to ensure reliable model training.
+   - **Task:** Acquire the necessary datasets and organize them in a structured folder format for easy access.
+
+#### Data Visualization
+
+1. **User Story:** As a developer, I can create engaging visualizations to help stakeholders grasp key insights from the data.
+   - **Task:** Select suitable visualization tools, generate visual representations, and export them for integration.
+
+2. **User Story:** As a developer, I can embed visualizations within the dashboard to facilitate intuitive data exploration.
+   - **Task:** Design a user-friendly interface that incorporates interactive visual elements.
+
+#### Model Training, Optimization, and Evaluation
+
+1. **User Story:** As a developer, I can identify the best hyperparameters for my model to enhance its performance.
+   - **Task:** Implement hyperparameter tuning techniques such as Grid Search to determine optimal settings.
+
+2. **User Story:** As a developer, I can train my machine learning model using the optimal hyperparameters to achieve accurate predictions.
+   - **Task:** Define the model architecture and create functions that utilize the optimal parameters for training.
+
+3. **User Story:** As a developer, I can assess my model's performance using various evaluation metrics to ensure it meets business requirements.
+   - **Task:** Utilize machine learning libraries to conduct evaluations and visualize the results effectively.
+
+4. **User Story:** As a user, I can view comprehensive evaluation results to understand the model's strengths and weaknesses.
+   - **Task:** Create an interface that presents detailed performance reports for the user.
+
+#### Dashboard Development and Deployment
+
+1. **User Story:** As a developer, I can implement interactive features in Streamlit to enhance user engagement with the dashboard.
+   - **Task:** Develop and integrate various Streamlit functionalities that make the dashboard intuitive and responsive.
+
+2. **User Story:** As a developer, I can successfully deploy the Streamlit dashboard to ensure it is available for public use.
+   - **Task:** Deploy the application on Heroku and confirm that users can access the dashboard online.
+
 
    [Back to Table of contents](#table-of-contents)
 
