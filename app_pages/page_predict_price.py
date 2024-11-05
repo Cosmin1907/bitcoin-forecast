@@ -12,7 +12,7 @@ def page_predict_price_body():
     Loads data, regression pipeline, and feature importance plot. 
     Shows pipeline details and evaluates model performance with training and testing data.
     """
-    version = 'v1'
+    version = 'v2'
     reg_pipeline = load_pkl_file(
         f"outputs/ml_pipeline/predict_close/{version}/best_regressor_pipeline.pkl")
     reg_feat_importance = plt.imread(
@@ -30,7 +30,7 @@ def page_predict_price_body():
 
     st.info(
         f"* The regression model aims to predict the next closing price based on historical data.\n"
-        f"* Target R² score was set at 0.70. Current performance shows an R² score of 0.87 on the train set and 0.79 on the test set."
+        f"* Target R² score was set at 0.70. Current performance shows an R² score of 0.89 on the train set and 0.79 on the test set."
     )
 
     st.write("---")
