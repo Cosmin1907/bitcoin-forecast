@@ -5,18 +5,18 @@ import pandas as pd
 
 sns.set_style("whitegrid")
 
+
 def page_price_study_body():
     """
     Display the main content for the Bitcoin Price Movement Correlation Study page.
-    Loads the dataset, provides an overview, displays key findings, and includes options 
+    Loads the dataset, provides an overview, displays key findings, and includes options
     for viewing specific correlation plots.
     """
     # Load Bitcoin data
     df = pd.read_csv('outputs/datasets/collection/BTCDaily.csv')
     df['date'] = pd.to_datetime(df['date'], format='%Y-%m-%d')
     df.set_index('date', inplace=True)
-    
-    
+
     st.write("### Bitcoin Price Movement Correlation Study")
     st.info(
         "* This study analyzes the correlation between Bitcoin's daily price metrics and trading volume, "
@@ -50,7 +50,6 @@ def page_price_study_body():
         "while **negative volume** tends to align with price decreases."
     )
 
-
     # Bull Market Plot (2017 Bull Run)
     if st.checkbox("Show 2017 Bull Market Plot"):
         plot_bull_market(df)
@@ -63,17 +62,17 @@ def page_price_study_body():
     if st.checkbox("Show Bitcoin Closing Price and Volume Overlay"):
         plot_volume_overlay(df)
 
+
 def plot_bull_market(df):
     """
     Plot Bitcoin's high, low, and closing prices during the 2017 bull market.
     Args:
         df (pd.DataFrame): The dataset containing Bitcoin trading data.
     """
-    
+
     start_date = '2017-12-01'
     end_date = '2018-02-01'
     df_bull_run = df[(df.index >= start_date) & (df.index <= end_date)]
-
 
     fig, ax = plt.subplots(figsize=(12, 6))
     ax.plot(df_bull_run.index.to_numpy(), df_bull_run['high'].to_numpy(), label='High', color='green')
@@ -87,18 +86,18 @@ def plot_bull_market(df):
     ax.grid(True)
     st.pyplot(fig)
 
+
 def plot_bear_market(df):
     """
     Plot Bitcoin's high, low, and closing prices during the 2020 COVID-19 market crash.
     Args:
         df (pd.DataFrame): The dataset containing Bitcoin trading data.
     """
-    
+
     start_date = '2020-02-01'
     end_date = '2020-05-01'
     df_crash = df[(df.index >= start_date) & (df.index <= end_date)]
 
-    
     fig, ax = plt.subplots(figsize=(12, 6))
     ax.plot(df_crash.index.to_numpy(), df_crash['high'].to_numpy(), label='High', color='green')
     ax.plot(df_crash.index.to_numpy(), df_crash['low'].to_numpy(), label='Low', color='red')
@@ -111,18 +110,18 @@ def plot_bear_market(df):
     ax.grid(True)
     st.pyplot(fig)
 
+
 def plot_volume_overlay(df):
     """
     Plot an overlay of Bitcoin's closing price with positive and negative trading volumes in USD.
     Args:
         df (pd.DataFrame): The dataset containing Bitcoin trading data.
     """
-    
+
     start_date = '2017-12-01'
     end_date = '2018-02-01'
     df_filtered = df[(df.index >= start_date) & (df.index <= end_date)]
 
-    
     fig, ax1 = plt.subplots(figsize=(12, 6))
     ax1.plot(df_filtered.index.to_numpy(), df_filtered['close'].to_numpy(), label='Close Price', color='blue')
     ax1.set_xlabel('Date')

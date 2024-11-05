@@ -7,6 +7,7 @@ from sklearn.metrics import (
     r2_score,
 )
 
+
 def confusion_matrix_and_report(X, y, pipeline, label_map):
     prediction = pipeline.predict(X)
 
@@ -19,12 +20,14 @@ def confusion_matrix_and_report(X, y, pipeline, label_map):
     st.write('#### Classification Report')
     st.code(classification_report(y, prediction, target_names=label_map), "\n")
 
+
 def clf_performance(X_train, y_train, X_test, y_test, pipeline, label_map):
     st.info("Train Set")
     confusion_matrix_and_report(X_train, y_train, pipeline, label_map)
 
     st.info("Test Set")
     confusion_matrix_and_report(X_test, y_test, pipeline, label_map)
+
 
 def regressor_performance(X_train, y_train, X_test, y_test, pipeline):
     y_train_pred = pipeline.predict(X_train)
@@ -38,6 +41,7 @@ def regressor_performance(X_train, y_train, X_test, y_test, pipeline):
     st.write("**Test Set**")
     st.write(f"Mean Squared Error: {mean_squared_error(y_test, y_test_pred):.2f}")
     st.write(f"R² Score: {r2_score(y_test, y_test_pred):.2f}")
+
 
 def evaluate_model(X_train, y_train, X_test, y_test, pipeline, label_map=None):
     if label_map is not None:

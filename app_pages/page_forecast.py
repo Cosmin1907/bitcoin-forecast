@@ -4,6 +4,7 @@ import numpy as np
 import requests
 from src.data_management import load_pkl_file
 
+
 def load_bitcoin_data():
     """Fetch and preprocess daily Bitcoin data from Binance API."""
     url = "https://api.binance.com/api/v3/klines"
@@ -13,18 +14,18 @@ def load_bitcoin_data():
     }
     response = requests.get(url, params=params)
     data = response.json()
-    
+
     if isinstance(data, dict) and 'code' in data:
         print(f"API Error: {data['msg']}")
         return None
-    
+
     # Extract relevant columns and convert to DataFrame
     prices = pd.DataFrame(data, columns=[
         "open_time", "open", "high", "low", "close", "volume", "close_time",
         "quote_asset_volume", "number_of_trades", "taker_buy_base_asset_volume",
         "taker_buy_quote_asset_volume", "ignore"
     ])
-    
+
     # Convert data types
     prices['open'] = prices['open'].astype(float)
     prices['high'] = prices['high'].astype(float)
@@ -32,17 +33,17 @@ def load_bitcoin_data():
     prices['close'] = prices['close'].astype(float)
     prices['volume'] = prices['volume'].astype(float)
     prices['quote_asset_volume'] = prices['quote_asset_volume'].astype(float)
-    
+
     # Rename columns to match desired format
     prices.rename(columns={
         "volume": "Volume BTC",
         "quote_asset_volume": "Volume USD"
     }, inplace=True)
-    
+
     # Transform the open_time column to datetime and set as index
     prices['open_time'] = pd.to_datetime(prices['open_time'], unit='ms')
     prices.set_index('open_time', inplace=True)
-    
+
     # Select and reorder columns to match the example format
     return prices[["open", "high", "low", "close", "Volume BTC", "Volume USD"]]
 
@@ -62,10 +63,11 @@ def new_features(df):
 
     # Calculate buy/sell signals
     df['buy/sell'] = df['close'].diff(periods=1)
-    df = df.copy().loc[df['buy/sell'].notna()]  
-    df['buy/sell'] = df['buy/sell'].apply(lambda x: 0 if x <= 0 else 1)  
+    df = df.copy().loc[df['buy/sell'].notna()]
+    df['buy/sell'] = df['buy/sell'].apply(lambda x: 0 if x <= 0 else 1)
 
     return df
+
 
 def load_models():
     """Load pre-trained regression and classification models."""
@@ -73,38 +75,41 @@ def load_models():
     classification_model = load_pkl_file("outputs/ml_pipeline/predict_buy_sell/v1/clf_pipeline_model.pkl")
     return regression_model, classification_model
 
+
 def predict_price(model, input_data):
     """Predict Bitcoin's closing price using the regression model."""
     return model.predict(input_data)
+
 
 def predict_signal(model, input_data):
     """Predict buy/sell signal using the classification model."""
     return model.predict(input_data)
 
+
 def page_forecast_body():
     """Render the Streamlit UI for Bitcoin price prediction and signal generation."""
     st.header("Bitcoin Price Prediction and Buy/Sell Signal")
-    
+
     st.info(
     f"The client aims to predict Bitcoin's next day's closing price and determine buy/sell signals based on market trends.\n"
     f"* The forecast is made using two algorithms: one predicts the next daily closing price of Bitcoin, while the other generates buy/sell signals to indicate trend continuation or initiation."
 )
-    
+
     # Load Bitcoin data
     bitcoin_data = load_bitcoin_data()
     if bitcoin_data is None:
-        return  
+        return
 
     # Transform data to add new features
     bitcoin_data_transformed = new_features(bitcoin_data)
-    
-    # Get the most recent price 
+
+    # Get the most recent price
     current_price = bitcoin_data['close'].iloc[-1]
     st.write(f"Current Bitcoin Price: ${current_price:,.2f}")
-    
+
     # Load models
     regression_model, classification_model = load_models()
-    
+
     X_live_reg = bitcoin_data_transformed.drop(columns=['close']).iloc[:-1]
     y_live_reg = bitcoin_data_transformed['close'].iloc[:-1]
 
@@ -119,7 +124,7 @@ def page_forecast_body():
     if st.button("Run Predictions"):
         # Prediction with regression model
         price_prediction = predict_price(regression_model, X_live_regression)
-        
+
         # Prediction with classification model
         signal_prediction = predict_signal(classification_model, X_live_classification)
 

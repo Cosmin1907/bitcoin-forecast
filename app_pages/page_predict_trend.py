@@ -3,7 +3,8 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import joblib
 from src.data_management import load_pkl_file
-from src.machine_learning.evaluate_model import evaluate_model  
+from src.machine_learning.evaluate_model import evaluate_model
+
 
 def page_predict_trend_body():
     """
@@ -11,9 +12,9 @@ def page_predict_trend_body():
 
     Loads preprocessed data, pipelines, and feature importance. Shows pipeline details and evaluates model performance.
     """
-    
+
     version = 'v1'
-    
+
     # Load needed files
     pipeline_data_cleaning_feat_eng = load_pkl_file(
         f'outputs/ml_pipeline/predict_buy_sell/{version}/clf_pipeline_data_cleaning_feat_eng.pkl'
@@ -30,19 +31,19 @@ def page_predict_trend_body():
     y_test = pd.read_csv(f'outputs/ml_pipeline/predict_buy_sell/{version}/y_test.csv').values
 
     st.write("### ML Pipeline: Predict Buy/Sell Signals")
-    
+
     st.info(
         f"* The classification model aims to predict potential 'buy' or 'sell' signals.\n"
         f"* Target recall was set at 80% for both 'Buy' and 'Sell' signals.\n"
-        
+
     )
-    
+
     st.write("---")
     st.write("#### There are 2 ML Pipelines arranged in series.")
-    
+
     st.write(" * The first pipeline handles data cleaning and feature engineering, passing trade data through without modification since it requires no additional transformations.")
     st.write(str(pipeline_data_cleaning_feat_eng))
-    
+
     st.write("* The second is for feature scaling and modeling.")
     st.write(str(pipeline_clf))
 
@@ -56,4 +57,4 @@ def page_predict_trend_body():
     evaluate_model(X_train=X_train, y_train=y_train,
                    X_test=X_test, y_test=y_test,
                    pipeline=pipeline_clf,
-                   label_map=["Sell", "Buy"])  
+                   label_map=["Sell", "Buy"])

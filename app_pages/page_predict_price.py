@@ -27,22 +27,22 @@ def page_predict_price_body():
         f"outputs/ml_pipeline/predict_close/{version}/y_test.csv")
 
     st.write("### ML Pipeline: Predict Bitcoin Closing Price")
-    
+
     st.info(
         f"* The regression model aims to predict the next closing price based on historical data.\n"
         f"* Target R² score was set at 0.70. Current performance shows an R² score of 0.87 on the train set and 0.79 on the test set."
     )
 
     st.write("---")
-    
+
     st.write("* ML pipeline to predict the next Bitcoin closing price.")
     st.write(str(reg_pipeline))
-    
+
     st.write("---")
 
     st.write("* The features the model was trained on and their importance:")
     st.image(reg_feat_importance)
-    
+
     st.write("---")
 
     # Evaluate performance
@@ -50,4 +50,3 @@ def page_predict_price_body():
     regressor_performance(X_train=X_train, y_train=y_train,
                           X_test=X_test, y_test=y_test,
                           pipeline=reg_pipeline)
-
