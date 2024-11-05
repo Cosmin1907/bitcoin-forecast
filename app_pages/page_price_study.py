@@ -19,9 +19,12 @@ def page_price_study_body():
 
     st.write("### Bitcoin Price Movement Correlation Study")
     st.info(
-        "* This study analyzes the correlation between Bitcoin's daily price metrics and trading volume, "
-        "focusing on the relationship between closing prices and trading volumes in USD and BTC."
+        "* This study explores the correlation between Bitcoin's daily price metrics and trading volume, "
+        "emphasizing key insights through data visualization. It includes a brief overview of the dataset, "
+        "individual plots comparing closing prices with high and low prices, and an overlay plot that illustrates "
+        "the relationship between trading volume and price changes."
     )
+
 
     # Inspect data
     if st.checkbox("Inspect Bitcoin Data"):
@@ -35,8 +38,7 @@ def page_price_study_body():
 
     # Summary of Correlation Study
     st.write(
-        "* This analysis of Bitcoin price movements reveals distinct patterns across different market conditions. "
-        "We observe how Bitcoin's price interacts with trading volumes and key price metrics in varying scenarios."
+        "* The analysis reveals significant correlations between Bitcoin's closing prices, high and low prices, and trading volumes, highlighting distinct market behaviors."
     )
 
     # Findings from the correlation analysis
