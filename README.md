@@ -68,12 +68,12 @@ The client is a trading company aiming to gain a competitive edge by identifying
 1. Identify key variables that correlate with significant Bitcoin price changes.
 2. Predict if Bitcoin's price will rise or fall in the near term and determine the likely trend strength. 
 
-1. **Business Requirement 1:** Data Visualization and Correlation study:
+**Business Requirement 1:** Data Visualization and Correlation study:
    - Will inspect the data related to the closing price.
    - Will conduct a correlation study (Pearson and Spearman) to understand better how the variables are correlated to the closing price.
    - Will plot the main variables against the closing price to visualize insights.
    
-2. **Business Requirement 2:** Classification, Regression:
+**Business Requirement 2:** Classification, Regression:
    - We want to predict the closing price of the new day. Will build a regression model.
    - We want to predict if it is a good momnet o buy or to sell. We want to build a classification model for buy and sell signals.
 
