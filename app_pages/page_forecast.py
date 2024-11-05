@@ -129,8 +129,10 @@ def page_forecast_body():
         signal_prediction = predict_signal(classification_model, X_live_classification)
 
         # Display results
+        st.write("The ML model has successfully completed the prediction task, and here are its outputs:")
         st.write(f"Predicted Daily Closing Price of Bitcoin: ${price_prediction[0]:,.2f}")
-        st.write(f"Predicted Signal: {'Buy' if signal_prediction[0] == 1 else 'Sell'} - indicating a short-term opportunity or trend direction.")
+        st.write(f"Signal Prediction: {'Buy' if signal_prediction[0] == 1 else 'Sell'} - indicating a short-term opportunity or trend direction.")
+
 
 if __name__ == "__main__":
     page_forecast_body()
