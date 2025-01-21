@@ -1,3 +1,4 @@
+# Bitcoin Forecast
 ## Table of contents
 
 - [Dataset Content](#dataset-content)
